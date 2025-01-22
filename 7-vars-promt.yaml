@@ -3,11 +3,11 @@
   connection: local
   vars_promt:
   - name: COURSE
-  promt: Please enter course name
+    promt: Please enter course name
   - name: DURATION
-  promt: Please enter duration in hours
+    promt: Please enter duration in hours
   - name: TRAINER
-  promt: Please enter trainer name  
+    promt: Please enter trainer name  
   tasks:
   - name: print variables at task level
     ansible.builtin.debug:
