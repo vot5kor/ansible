@@ -1,0 +1,7 @@
+- name: varaiables from files
+  hosts: local
+  connection: local
+  tasks:
+  - name: print variables at task level
+    ansible.builtin.debug:
+     msg: "My course name is {{ COURSE }}, duration {{ DURATION }} by trainer {{ TRAINER }}"
