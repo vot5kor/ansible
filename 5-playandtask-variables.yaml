@@ -1,7 +1,10 @@
 - name: Variables
   hosts: local
   connection: local
+  vars:
+    NAME1= "Divisha Aarya"
+    NAME2= "Arjun Bargav Naidu"
   tasks:
   - name: print variables
     ansible.builtin.debug:
-     msg: "my kids name is divisha and Arjun"
+     msg: "my kids name is {( NAME1 )} and {( NAME2 )}"
