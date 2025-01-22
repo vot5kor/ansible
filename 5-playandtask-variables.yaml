@@ -6,10 +6,11 @@
     NAME2: "Arjun Bargav Naidu"
   tasks:
   vars: # Task level variables declaration
-    NAME1: "Ram"
+    NAME1: Ram
   - name: print variables
     ansible.builtin.debug:
      msg: "my kids name is {{ NAME1} } and {{ NAME2 }}"
+
   - name: print variables
     ansible.builtin.debug:
      msg: "my kids name is {{ NAME1 }} and {{ NAME2 }}"
