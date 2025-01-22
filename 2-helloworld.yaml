@@ -1,6 +1,6 @@
  -name: hello world
   hosts: web
-   tasks: # task=module=collection
+  tasks: # task=module=collection
   - name: print the hellow world
     ansible.builtin.debug:
       msg: " Welcome to hello world "
