@@ -3,5 +3,5 @@
   connection: local
   tasks:
   - name: print variables
-    ansible.bultin.debug:
+    ansible.builtin.debug:
      msg: "my kids name is divisha and Arjun"
