@@ -7,4 +7,4 @@
   tasks:
   - name: print variables
     ansible.builtin.debug:
-     msg: "my kids name is {( NAME1 )} and {( NAME2 )}"
+     msg: "my kids name is {{ NAME1 }} and {{ NAME2 }}"
