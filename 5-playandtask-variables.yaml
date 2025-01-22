@@ -9,7 +9,7 @@
     vars: # Task level variables, accessible only with in the task. Task variables can override play level variables. Local variables
      NAME1: Ram
     ansible.builtin.debug:
-     msg: "my kids name is {{ NAME1} } and {{ NAME2 }}"
+     msg: "my kids name is {{ NAME1 }} and {{ NAME2 }}"
 
   - name: print variables
     ansible.builtin.debug:
