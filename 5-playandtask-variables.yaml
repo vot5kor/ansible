@@ -2,6 +2,6 @@
   hosts: local
   connection: local
   tasks:
-  - name: task level
+  - name: print variables
     ansible.bultin.debug:
-      msg: "my kids name is divisha and Arjun"
+     msg: "my kids name is divisha and Arjun"
