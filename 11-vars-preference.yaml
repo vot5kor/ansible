@@ -15,6 +15,7 @@
     #   GREET: "TASK"
     ansible.builtin.debug:
       msg: "Hello from {{ GREET }}"
+      msg: "My course name is {{ COURSE }}, duration {{ DURATION }} by trainer {{ TRAINER }}"
 
 #1. Command line or args
 #2. Task level
