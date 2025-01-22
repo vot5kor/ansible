@@ -1,4 +1,4 @@
-- name: variables
+- name: variables from [local:vars]
   hosts: local
   connection: local
   # vars: # PLAY level variables
@@ -14,9 +14,8 @@
     # vars:
     #   GREET: "TASK"
     ansible.builtin.debug:
-      msg: "Hello from {{ GREET }}"
-      msg: "My course name is {{ COURSE }}, duration {{ DURATION }} by trainer {{ TRAINER }}"
-
+      msg: "My course name is {{ COURSE }}, duration {{ DURATION }} by trainer {{ TRAINER }}, Hello from {{ GREET }}"
+     
 #1. Command line or args
 #2. Task level
 #3. Files
