@@ -2,8 +2,8 @@
   hosts: local
   connection: local
   vars:
-    NAME1= "Divisha Aarya"
-    NAME2= "Arjun Bargav Naidu"
+    NAME1: "Divisha Aarya"
+    NAME2: "Arjun Bargav Naidu"
   tasks:
   - name: print variables
     ansible.builtin.debug:
