@@ -4,5 +4,3 @@
   -name: print hellow world
    ansible.builtin.debug:
     msg: "Hello World"
-
-      
