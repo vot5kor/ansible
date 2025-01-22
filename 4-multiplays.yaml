@@ -1,0 +1,13 @@
+- name: Play1
+  hosts: Local
+  tasks: 
+  - name: play1 and task1 #managing multiple tasks and plays
+    ansible.build.debug:
+     msg: "welcome to play1"
+     
+- name: Play2
+  hosts: Local
+  tasks: 
+  - name: play2and task1 #managing multiple tasks and plays
+    ansible.build.debug:
+     msg: "welcome to play2"
