@@ -1,4 +1,4 @@
-- name: varaiables call from inventory{local:vars}
+- name: varaiables call from inventory{local}
   hosts: local
   connection: local
   tasks:
