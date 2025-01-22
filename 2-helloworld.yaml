@@ -3,8 +3,6 @@
   tasks:
     -name: print hellow world
      ansible.builtin.debug:
-       msg: "Hello World"
-    -name: print hellow world copy
-     ansible.builtin.debug:
-       msg: "welcome to Hello World"
+      msg: "Hello World"
+
       
