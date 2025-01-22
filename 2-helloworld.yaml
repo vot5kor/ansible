@@ -1,4 +1,4 @@
- -name: hello world
+- name: hello world
   hosts: 54.166.2.235
   tasks:
     -name: print hellow world
