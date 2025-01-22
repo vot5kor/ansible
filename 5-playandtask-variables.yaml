@@ -2,12 +2,12 @@
   hosts: local
   connection: local
   vars: # PLAY level variables, global variables
-    NAME1: "Divisha Aarya"
-    NAME2: "Arjun Bargav Naidu"
+   NAME1: "Divisha Aarya"
+   NAME2: "Arjun Bargav Naidu"
   tasks:
-  - name: print variables
+  - name: print variables at task level
     vars: # Task level variables, accessible only with in the task. Task variables can override play level variables. Local variables
-    NAME1: Ram
+     NAME1: Ram
     ansible.builtin.debug:
      msg: "my kids name is {{ NAME1} } and {{ NAME2 }}"
 
