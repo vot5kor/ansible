@@ -5,9 +5,9 @@
     NAME1: "Divisha Aarya"
     NAME2: "Arjun Bargav Naidu"
   tasks:
-  vars: # Task level variables, accessible only with in the task. Task variables can override play level variables. Local variables
-    NAME1: Ram
   - name: print variables
+    vars: # Task level variables, accessible only with in the task. Task variables can override play level variables. Local variables
+    NAME1: Ram
     ansible.builtin.debug:
      msg: "my kids name is {{ NAME1} } and {{ NAME2 }}"
 
