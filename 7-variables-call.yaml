@@ -1,0 +1,10 @@
+- name: Variables
+  hosts: local
+  connection: local
+  vars_files:
+  - course.yaml
+  tasks:
+  - name: print variables at task level
+    ansible.builtin.debug:
+     msg: "My course name is devops with aws, duration 120hrs by trainer siva"
+ 
