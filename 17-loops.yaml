@@ -1,8 +1,8 @@
 - name: loops
   hosts: web
   tasks:
-  - name: print the test
-    ansible.builtin.build:
+  - name: print the text
+    ansible.builtin.debug:
      msg: "{{ item }}"
     loop:
     - ram
