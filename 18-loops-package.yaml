@@ -3,7 +3,7 @@
   tasks:
   - name: install multiple packages
     ansible.builtin.package:
-     name: {{ item }}
+     name: "{{ item }}"
      state: installed
      
     loop:
