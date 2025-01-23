@@ -11,8 +11,8 @@
     private: false
   tasks:
   - name: print the variable
-    vars:
-      GREET: "TASK"
+    # vars:
+    #   GREET: "TASK"
     ansible.builtin.debug:
       msg: "My course name is {{ COURSE }}, duration {{ DURATION }} by trainer {{ TRAINER }}, Hello from {{ GREET }}"
      
