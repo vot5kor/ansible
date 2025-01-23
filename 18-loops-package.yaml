@@ -1,0 +1,12 @@
+- name: install multiple  packages
+  hosts: web
+  tasks:
+  - name: install multiple packages
+    ansible.builtin.package:
+     name: {{ item }}
+     state: installed
+     
+    loop:
+    - gcp
+    - nginx
+    - mysql
