@@ -1,0 +1,7 @@
+- name: filters
+  status: web
+  tasks:
+  - name: Print the undefinned person
+    ansible.builtin.debug:
+     msg: " person name: {{ person | default ('ram') }}"
+     

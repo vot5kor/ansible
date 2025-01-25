@@ -1,16 +1,29 @@
-- name: install multiple  packages
-  hosts: web
-  become: yes
-  tasks:
-  - name: install multiple packages
-    ansible.builtin.package:
-     name: "{{ item.name }}"
-     state: "{{ item.state }}"
+# - name: install multiple  packages
+#   hosts: web
+#   become: yes
+#   tasks:
+#   - name: install multiple packages
+#     ansible.builtin.package:
+#      name: "{{ item.name }}"
+#      state: "{{ item.state }}"
      
+#     loop:
+#     - { name: 'gcc', state: 'absent'}
+#     - { name: 'mysql', state: 'absent'}
+#     - { name: 'nginx', state: 'absent'}
+- name: Touch files with an optional mode
+  hosts: web
+  tasks:
+  - name: Touch files with an optional mode
+    ansible.builtin.file:
+      dest: "{{ item.path }}"
+      state: touch
+      mode: "{{ item.mode | default(omit) }}"
     loop:
-    - { name: 'gcc', state: 'absent'}
-    - { name: 'mysql', state: 'absent'}
-    - { name: 'nginx', state: 'absent'}
+      - path: /tmp/foo
+      - path: /tmp/bar
+      - path: /tmp/baz
+        mode: "0444"
 
 # - name: install multiple  packages
 #   hosts: web
@@ -20,7 +33,6 @@
 #     ansible.builtin.package:
 #      name: "{{ item }}"
 #      state: installed
-     
 #     loop:
 #     - gcc
 #     - nginx
