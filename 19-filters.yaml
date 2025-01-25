@@ -7,9 +7,8 @@
       msg: "Hello {{ person | default('Ramesh') }}"
 
 
-
-- name: Transform string to list
+- name: convert string to list
   vars:
-    fruits: "apple,banana,orange"
-  ansible.builtin.split:
-    msg: " fruits are {{ fruits | split (',') }} "
+    fruits: "apple, banana, orange" #String
+  ansible.builtin.debug:
+    msg: "Fruits are: {{ fruits | split(',') }}"
