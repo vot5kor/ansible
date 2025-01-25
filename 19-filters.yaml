@@ -1,7 +1,7 @@
 - name: filters
-  status: web
+  status: local
+  connection: local
   tasks:
   - name: Print the undefinned person
     ansible.builtin.debug:
      msg: " person name: {{ person | default ('ram') }}"
-     
