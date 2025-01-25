@@ -2,6 +2,6 @@
   status: local
   connection: local
   tasks:
-  - name: Print the undefinned person
+  - name: handle undefine variable
     ansible.builtin.debug:
-     msg: " person name: {{ default ('ram') }}"
+      msg:" hello  {{ person | default ('ram') }}"
