@@ -4,4 +4,4 @@
   tasks:
   - name: Print the undefinned person
     ansible.builtin.debug:
-     msg: " person name: {{ person | default ('ram') }}"
+     msg: " person name: {{ default ('ram') }}"
