@@ -2,5 +2,12 @@
   hosts: local
   connection: local
   tasks:
+  - name: create file 
+    ansible.builtin.file:
+     path: /tmp/output.txt
+     owner: foo
+     group: foo
+     mode: '0644'
+
   - name: execute ls command
     ansible.builtin.command: ls -ltr > /tmp/output.txt
