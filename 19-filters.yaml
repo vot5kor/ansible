@@ -2,9 +2,9 @@
   hosts: local
   connection: local
   tasks:
-  - name: handle undefine variable
-    ansible.builtin.debug:
-      msg: "Hello {{ person | default('Ramesh') }}"
+  # - name: handle undefine variable
+  #   ansible.builtin.debug:
+  #     msg: "Hello {{ person | default('Ramesh') }}"
 
 
 - name: convert string to list
