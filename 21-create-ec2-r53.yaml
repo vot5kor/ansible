@@ -1,5 +1,5 @@
 - name: Create EC2 Instances
-  hosts: local
+  hosts: localhost
   connection: local
   become: yes
   vars:
@@ -15,7 +15,7 @@
     - front
 
   tasks:
-  - name: Install Python Libraries
+  - name: Install AWS Python Libraries
     ansible.builtin.debug:
      name: "{{ item }}"
      executable: pip3.9
