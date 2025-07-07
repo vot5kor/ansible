@@ -17,7 +17,8 @@
   tasks:
   - name: Install Python Libraries
     ansible.builtin.debug:
-     msg: "{{ item }}"
+     name: "{{ item }}"
+     executable: pip3.9
     loop:
     - boto3
     - botocore
