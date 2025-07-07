@@ -13,7 +13,7 @@
     - mysql
     - backend
     - front
-    
+
   tasks:
   - name: Install Python Libraries
     ansible.builtin.debug:
@@ -22,15 +22,15 @@
     - boto3
     - botocore
 
-- name: Create EC2 instance
-  amazon.aws.ec2_instance:
-    name: "{{ item }}"  # use lowercase 'name'
-    subnet_id: "{{ subnet_id }}"
-    security_group: "{{ sg_id }}"
-    image_id: "{{ ami_id }}"
-    instance_type: "{{ instance_type }}"
-    region: "{{ region }}"
-    wait: yes
-  loop: "{{ instances }}"
+  - name: Create EC2 instance
+    amazon.aws.ec2_instance:
+      name: "{{ item }}"  # use lowercase 'name'
+      subnet_id: "{{ subnet_id }}"
+      security_group: "{{ sg_id }}"
+      image_id: "{{ ami_id }}"
+      instance_type: "{{ instance_type }}"
+      region: "{{ region }}"
+      wait: yes
+    loop: "{{ instances }}"
 
 
