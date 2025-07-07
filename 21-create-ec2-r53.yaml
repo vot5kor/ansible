@@ -8,7 +8,7 @@
     subnet_id: subnet-0e814051cd870f5f7
     sg_id: sg-0edf79ad0013d26e2
     instance_type: t3.micro
-    # region: us-east-1c
+    region: us-east-1c
     instances:
     - mysql
     - backend
@@ -22,14 +22,15 @@
     - boto3
     - botocore
 
-  - name: Create EC2 instance
-    amazon.aws.ec2_instance:
-      Name: "{{ item }}"
-      # vpc_subnet_id: "{{ vpc_id }}"
-      subnet_id: "{{ subnet_id }}"
-      security_group: "{{ sg_id }}"
-      image_id: "{{ ami_id }}"
-      instance_type: "{{ instance_type }}"
-    loop: "{{ instances }}"
+- name: Create EC2 instance
+  amazon.aws.ec2_instance:
+    name: "{{ item }}"  # use lowercase 'name'
+    subnet_id: "{{ subnet_id }}"
+    security_group: "{{ sg_id }}"
+    image_id: "{{ ami_id }}"
+    instance_type: "{{ instance_type }}"
+    region: "{{ region }}"
+    wait: yes
+  loop: "{{ instances }}"
 
 
