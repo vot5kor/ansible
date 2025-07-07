@@ -1,38 +1,41 @@
 - name: Create EC2 Instances
-  hosts: local
+  hosts: localhost
   connection: local
   become: yes
   vars:
+    ansible_python_interpreter: /usr/bin/python3  # adjust if needed
     ami_id: ami-09c813fb71547fc4f
-    # vpc_id: vpc-0df004bd355d2ac36
     subnet_id: subnet-0e814051cd870f5f7
     sg_id: sg-0edf79ad0013d26e2
     instance_type: t3.micro
     region: us-east-1
     instances:
-    - mysql
-    - backend
-    - front
+      - mysql
+      - backend
+      - front
 
   tasks:
-  - name: Ensure boto3 and botocore are installed
-    ansible.builtin.pip:
-      name: "{{ item }}"
-      executable: pip3.9
-    loop:
-      - boto3
-      - botocore
+    - name: Ensure boto3 and botocore are installed
+      ansible.builtin.pip:
+        name: "{{ item }}"
+        executable: pip3
+      loop:
+        - boto3
+        - botocore
 
+    - name: Create EC2 instances
+      amazon.aws.ec2_instance:
+        name: "{{ item }}"
+        region: "{{ region }}"
+        image_id: "{{ ami_id }}"
+        instance_type: "{{ instance_type }}"
+        subnet_id: "{{ subnet_id }}"
+        security_group: "{{ sg_id }}"
+        wait: yes
+        # key_name: my-keypair   # Optional: provide key name if needed
+        # tags:                  # Optional: add tags
+        #   Name: "{{ item }}"
+      loop: "{{ instances }}"
 
-  - name: Create EC2 instance
-    amazon.aws.ec2_instance:
-      name: "{{ item }}"  # use lowercase 'name'
-      region: "{{ region }}"
-      subnet_id: "{{ subnet_id }}"
-      security_group: "{{ sg_id }}"
-      image_id: "{{ ami_id }}"
-      instance_type: "{{ instance_type }}"
-      wait: yes
-    loop: "{{ instances }}"
 
 
