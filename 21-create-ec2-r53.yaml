@@ -15,13 +15,14 @@
     - front
 
   tasks:
-  - name: Install AWS Python Libraries
-    ansible.builtin.debug:
-     name: "{{ item }}"
-     executable: pip3.9
+  - name: Ensure boto3 and botocore are installed
+    ansible.builtin.pip:
+      name: "{{ item }}"
+      executable: pip3
     loop:
-    - boto3
-    - botocore
+      - boto3
+      - botocore
+
 
   - name: Create EC2 instance
     amazon.aws.ec2_instance:
