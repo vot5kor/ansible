@@ -18,7 +18,7 @@
   - name: Ensure boto3 and botocore are installed
     ansible.builtin.pip:
       name: "{{ item }}"
-      executable: pip3
+      executable: pip3.9
     loop:
       - boto3
       - botocore
