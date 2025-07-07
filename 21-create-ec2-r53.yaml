@@ -1,0 +1,29 @@
+- name: Create EC2 Instances
+  hosts: local
+  connection: local
+  become: yes
+  vars:
+    ami_id: ami-09c813fb71547fc4f
+    # vpc_id: vpc-0df004bd355d2ac36
+    subnet_id: subnet-0e814051cd870f5f7
+    sg_id: sg-0edf79ad0013d26e2
+    instance_type: t3.micro
+    # region: us-east-1c
+    instances:
+    - mysql
+    - backend
+    - front
+
+  tasks:
+  - name: Create EC2 instance
+    amazon.aws.ec2_instance:
+      Name: "{{ item }}"
+      # vpc_subnet_id: "{{ vpc_id }}"
+      subnet_id: "{{ subnet_id }}"
+      security_group: "{{ sg_id }}"
+      image_id: "{{ ami_id }}"
+      instance_type: "{{ instance_type }}"
+    loop: "{{ instances }}"
+    tags:
+      Environment: Testing
+
