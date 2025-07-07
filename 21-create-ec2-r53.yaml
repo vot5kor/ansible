@@ -15,6 +15,13 @@
     - front
 
   tasks:
+  - name: SQL dependency libraries
+    ansible.builtin.debug:
+     msg: "{{ item }}"
+    loop:
+    - boto3
+    - botocore
+
   - name: Create EC2 instance
     amazon.aws.ec2_instance:
       Name: "{{ item }}"
