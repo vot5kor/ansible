@@ -13,9 +13,9 @@
     - mysql
     - backend
     - front
-
+    
   tasks:
-  - name: SQL dependency libraries
+  - name: Install Python Libraries
     ansible.builtin.debug:
      msg: "{{ item }}"
     loop:
