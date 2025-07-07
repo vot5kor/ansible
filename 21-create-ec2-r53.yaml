@@ -8,7 +8,6 @@
     subnet_id: subnet-0e814051cd870f5f7
     sg_id: sg-0edf79ad0013d26e2
     instance_type: t3.micro
-    region: us-east-1c
     instances:
     - mysql
     - backend
@@ -31,7 +30,6 @@
       security_group: "{{ sg_id }}"
       image_id: "{{ ami_id }}"
       instance_type: "{{ instance_type }}"
-      region: "{{ region }}"
       wait: yes
     loop: "{{ instances }}"
 
