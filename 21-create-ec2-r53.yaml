@@ -36,6 +36,9 @@
         # tags:                  # Optional: add tags
         #   Name: "{{ item }}"
       loop: "{{ instances }}"
-
+      register: ec2_info
+      
+    - name: Print ec2_info 
+      msg: "{{ ec2_info }}"
 
 
