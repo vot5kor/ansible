@@ -44,7 +44,11 @@
     # #   ansible.builtin.debug:
     # #     msg: "{{ item.instances[0].private_ip_address }}"
     # #   loop: "{{ ec2_info.results }}"
-
+    - name: Print public IP address
+      ansible.builtin.debug:
+        msg: "{{ item.instances[0].public_ip_address }}"
+      loop: "{{ ec2_info.results }}"
+      when: item.item == "frontend"
 
     - name: create private ip r53 records
       amazon.aws.route53:
