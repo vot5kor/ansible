@@ -13,7 +13,7 @@
     instances:
       - mysql
       - backend
-      - front
+      - frontend
 
   tasks:
     - name: Ensure boto3 and botocore are installed
@@ -69,4 +69,4 @@
           wait: true
           overwrite: true
       loop: "{{ ec2_info.results }}"
-      when: item.item == "front"
+      when: item.item == "frontend"
