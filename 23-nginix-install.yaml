@@ -1,13 +1,14 @@
 - name: install and run nginx
   hosts: all #nginix
   become: yes # -b
+  serial: 3
   tasks:
   - name: install nginx
     ansible.builtin.package:
       name: nginx
       state: present
-  # - name: start the nginx
-  #   ansible.builtin.service:
-  #     name: nginx
-  #     state: started
-  #     enabled: yes
+  - name: start the nginx
+    ansible.builtin.service:
+      name: nginx
+      state: started
+      enabled: yes
